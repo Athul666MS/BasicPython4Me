@@ -1,3 +1,2 @@
 a="Hello world"
-
-b="Arun"
+c="Sandeep"
