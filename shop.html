@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopHub - Your Shopping Destination</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-shopping-bag text-orange-500 text-3xl"></i>
+                    <span class="text-3xl font-bold text-gray-800">ShopHub</span>
+                </div>
+
+                <div class="flex items-center justify-end space-x-8 flex-1">
+                    
+                    <nav class="hidden lg:flex space-x-8">
+                        <a href="#" class="text-gray-700 hover:text-orange-500 font-medium">Home</a>
+                        <a href="#" class="text-orange-500 font-bold border-b-2 border-orange-500 pb-1">Shop</a>
+                        <a href="#" class="text-gray-700 hover:text-orange-500 font-medium">New Arrivals</a>
+                        <a href="#" class="text-gray-700 hover:text-orange-500 font-medium">Blog</a>
+                        <a href="#" class="text-gray-700 hover:text-orange-500 font-medium">Contact</a>
+                    </nav>
+
+                    <div class="flex items-center space-x-6">
+                        <button class="text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-search text-xl"></i>
+                        </button>
+                        <button class="relative text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">3</span>
+                        </button>
+                        <button class="hidden md:block px-6 py-2 border-2 border-gray-800 text-gray-800 rounded-lg hover:bg-gray-800 hover:text-white transition-colors font-medium">
+                            Login
+                        </button>
+                        <button class="hidden md:block px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">
+                            Register
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-6 py-8">
+        <div class="flex gap-8">
+            <aside class="w-64 flex-shrink-0">
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <h2 class="text-2xl font-bold mb-6 text-gray-800">Filters</h2>
+
+                    <div class="mb-8">
+                        <h3 class="font-bold text-gray-800 mb-4 text-lg">Categories</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500">
+                                <span class="text-gray-700 group-hover:text-orange-500">Mobile Phones</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500">
+                                <span class="text-gray-700 group-hover:text-orange-500">Laptops</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500">
+                                <span class="text-gray-700 group-hover:text-orange-500">Speakers</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500">
+                                <span class="text-gray-700 group-hover:text-orange-500">Clothing</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500">
+                                <span class="text-gray-700 group-hover:text-orange-500">Electronics</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500">
+                                <span class="text-gray-700 group-hover:text-orange-500">Fashion</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="font-bold text-gray-800 mb-4 text-lg">Price Range</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="price" class="w-4 h-4 text-orange-500 border-gray-300 focus:ring-orange-500">
+                                <span class="text-gray-700 group-hover:text-orange-500">Under ₹1,000</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="price" class="w-4 h-4 text-orange-500 border-gray-300 focus:ring-orange-500">
+                                <span class="text-gray-700 group-hover:text-orange-500">₹1,000 - ₹10,000</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="price" class="w-4 h-4 text-orange-500 border-gray-300 focus:ring-orange-500">
+                                <span class="text-gray-700 group-hover:text-orange-500">₹10,000 - ₹50,000</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="radio" name="price" class="w-4 h-4 text-orange-500 border-gray-300 focus:ring-orange-500">
+                                <span class="text-gray-700 group-hover:text-orange-500">Over ₹50,000</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="flex-1">
+                <div class="flex justify-between items-center mb-6">
+                    <div>
+                        <p class="text-gray-600 text-sm">Showing 1-12 of 48 results</p>
+                    </div>
+                    <select class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 text-gray-700">
+                        <option>Sort by: Featured</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Newest First</option>
+                        <option>Customer Rating</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
+                        <div class="relative h-80 bg-gradient-to-br from-purple-100 to-pink-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1592286927505-ed303e3d0eef?w=400" 
+                                    alt="iPhone 15" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5">
+                            <span class="inline-block px-3 py-1 bg-orange-100 text-orange-600 text-xs font-semibold rounded-full mb-3">
+                                Electronics
+                            </span>
+                            <p class="text-sm text-gray-600 mb-2">Mobile Hub</p>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3 truncate">iPhone 15 Pro Max</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400 text-sm">★★★★★</span>
+                                <span class="text-gray-600 text-xs ml-2">(245)</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-gray-900">₹79,999</span>
+                                <button class="px-5 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
+                        <div class="relative h-80 bg-gradient-to-br from-blue-100 to-purple-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400" 
+                                    alt="Bluetooth Speaker" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5">
+                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-600 text-xs font-semibold rounded-full mb-3">
+                                Electronics
+                            </span>
+                            <p class="text-sm text-gray-600 mb-2">Audio Gear</p>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3 truncate">Portable Bluetooth Speaker</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400 text-sm">★★★★☆</span>
+                                <span class="text-gray-600 text-xs ml-2">(150)</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-gray-900">₹1,999</span>
+                                <button class="px-5 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
+                        <div class="relative h-80 bg-gradient-to-br from-purple-100 to-blue-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400" 
+                                    alt="Samsung Galaxy" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5">
+                            <span class="inline-block px-3 py-1 bg-purple-100 text-purple-600 text-xs font-semibold rounded-full mb-3">
+                                Electronics
+                            </span>
+                            <p class="text-sm text-gray-600 mb-2">Tech Store</p>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3 truncate">Samsung Galaxy Z Flip 5</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400 text-sm">★★★★★</span>
+                                <span class="text-gray-600 text-xs ml-2">(190)</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-gray-900">₹89,999</span>
+                                <button class="px-5 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
+                        <div class="relative h-80 bg-gradient-to-br from-pink-100 to-orange-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400" 
+                                    alt="Cotton T-Shirt" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5">
+                            <span class="inline-block px-3 py-1 bg-pink-100 text-pink-600 text-xs font-semibold rounded-full mb-3">
+                                Fashion
+                            </span>
+                            <p class="text-sm text-gray-600 mb-2">Fashion World</p>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3 truncate">Unisex Cotton T-Shirt</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400 text-sm">★★★★☆</span>
+                                <span class="text-gray-600 text-xs ml-2">(310)</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-gray-900">₹499</span>
+                                <button class="px-5 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
+                        <div class="relative h-80 bg-gradient-to-br from-gray-100 to-blue-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400" 
+                                    alt="Dell XPS 13" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5">
+                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-600 text-xs font-semibold rounded-full mb-3">
+                                Electronics
+                            </span>
+                            <p class="text-sm text-gray-600 mb-2">Laptop Hub</p>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3 truncate">Dell XPS 13 Laptop</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400 text-sm">★★★★★</span>
+                                <span class="text-gray-600 text-xs ml-2">(188)</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-gray-900">₹99,999</span>
+                                <button class="px-5 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
+                        <div class="relative h-80 bg-gradient-to-br from-indigo-100 to-purple-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400" 
+                                    alt="Wireless Headphones" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5">
+                            <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-600 text-xs font-semibold rounded-full mb-3">
+                                Electronics
+                            </span>
+                            <p class="text-sm text-gray-600 mb-2">Audio Gear</p>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3 truncate">Noise-Cancelling Headphones</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400 text-sm">★★★★★</span>
+                                <span class="text-gray-600 text-xs ml-2">(402)</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-gray-900">₹2,499</span>
+                                <button class="px-5 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
+                        <div class="relative h-80 bg-gradient-to-br from-green-100 to-teal-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" 
+                                    alt="Smart Watch" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5">
+                            <span class="inline-block px-3 py-1 bg-green-100 text-green-600 text-xs font-semibold rounded-full mb-3">
+                                Electronics
+                            </span>
+                            <p class="text-sm text-gray-600 mb-2">Wearables</p>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3 truncate">Fitness Tracker Smart Watch</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400 text-sm">★★★★★</span>
+                                <span class="text-gray-600 text-xs ml-2">(245)</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-gray-900">₹12,999</span>
+                                <button class="px-5 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
+                        <div class="relative h-80 bg-gradient-to-br from-red-100 to-pink-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400" 
+                                    alt="Gaming Mouse" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5">
+                            <span class="inline-block px-3 py-1 bg-red-100 text-red-600 text-xs font-semibold rounded-full mb-3">
+                                Electronics
+                            </span>
+                            <p class="text-sm text-gray-600 mb-2">Gaming Peripherals</p>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3 truncate">RGB Gaming Mouse</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400 text-sm">★★★★☆</span>
+                                <span class="text-gray-600 text-xs ml-2">(120)</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-gray-900">₹1,299</span>
+                                <button class="px-5 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
+                        <div class="relative h-80 bg-gradient-to-br from-yellow-100 to-orange-100 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400" 
+                                    alt="Sunglasses" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-5">
+                            <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-semibold rounded-full mb-3">
+                                Fashion
+                            </span>
+                            <p class="text-sm text-gray-600 mb-2">Accessories</p>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-3 truncate">Classic Wayfarer Sunglasses</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400 text-sm">★★★★★</span>
+                                <span class="text-gray-600 text-xs ml-2">(98)</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <span class="text-2xl font-bold text-gray-900">₹899</span>
+                                <button class="px-5 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Add to Cart animation
+        document.querySelectorAll('button').forEach(button => {
+            if(button.textContent.trim() === 'Add to Cart') {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const originalText = this.textContent;
+                    this.textContent = 'Added!';
+                    this.classList.remove('bg-orange-500', 'hover:bg-orange-600');
+                    this.classList.add('bg-green-500');
+                    
+                    // Update cart count (simulated)
+                    const cartSpan = document.querySelector('.fa-shopping-cart').nextElementSibling;
+                    let count = parseInt(cartSpan.textContent);
+                    cartSpan.textContent = count + 1;
+
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.classList.remove('bg-green-500');
+                        this.classList.add('bg-orange-500', 'hover:bg-orange-600');
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

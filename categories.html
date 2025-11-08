@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - ShopHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .categories-gradient {
+            background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%);
+        }
+        .category-card:hover {
+            transform: translateY(-8px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-shopping-bag text-orange-500 text-3xl"></i>
+                    <span class="text-3xl font-bold text-gray-800">ShopHub</span>
+                </div>
+
+                <div class="flex items-center justify-end space-x-8 flex-1">
+                    <nav class="hidden lg:flex space-x-8">
+                        <a href="index.html" class="text-gray-700 hover:text-orange-500 font-medium">Home</a>
+                        <a href="shop.html" class="text-gray-700 hover:text-orange-500 font-medium">Shop</a>
+                        <a href="new-arrivals.html" class="text-gray-700 hover:text-orange-500 font-medium">New Arrivals</a>
+                        <a href="deals.html" class="text-gray-700 hover:text-orange-500 font-medium">Deals & Offers</a>
+                        <a href="contact.html" class="text-gray-700 hover:text-orange-500 font-medium">Contact</a>
+                    </nav>
+
+                    <div class="flex items-center space-x-6">
+                        <button class="text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-search text-xl"></i>
+                        </button>
+                        <button class="relative text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">3</span>
+                        </button>
+                        <button class="hidden md:block px-6 py-2 border-2 border-gray-800 text-gray-800 rounded-lg hover:bg-gray-800 hover:text-white transition-colors font-medium">
+                            Login
+                        </button>
+                        <button class="hidden md:block px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">
+                            Register
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="categories-gradient py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl font-bold text-gray-900 mb-6">Shop by Category</h1>
+                <p class="text-xl text-gray-700">Discover products across all categories</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Grid -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Electronics -->
+                <a href="shop.html" class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 text-center category-card transition-all duration-300 cursor-pointer group">
+                    <div class="bg-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                        <i class="fas fa-mobile-alt text-blue-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Electronics</h3>
+                    <p class="text-gray-600 mb-4">Smartphones, Laptops, Cameras & more</p>
+                    <div class="flex items-center justify-center space-x-1 text-blue-500">
+                        <span class="font-semibold">1,284 Products</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </div>
+                </a>
+
+                <!-- Fashion -->
+                <a href="shop.html" class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 text-center category-card transition-all duration-300 cursor-pointer group">
+                    <div class="bg-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                        <i class="fas fa-tshirt text-purple-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Fashion</h3>
+                    <p class="text-gray-600 mb-4">Clothing, Shoes, Accessories & more</p>
+                    <div class="flex items-center justify-center space-x-1 text-purple-500">
+                        <span class="font-semibold">2,567 Products</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </div>
+                </a>
+
+                <!-- Home & Kitchen -->
+                <a href="shop.html" class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 text-center category-card transition-all duration-300 cursor-pointer group">
+                    <div class="bg-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                        <i class="fas fa-home text-green-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Home & Kitchen</h3>
+                    <p class="text-gray-600 mb-4">Furniture, Appliances, Decor & more</p>
+                    <div class="flex items-center justify-center space-x-1 text-green-500">
+                        <span class="font-semibold">893 Products</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </div>
+                </a>
+
+                <!-- Beauty -->
+                <a href="shop.html" class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl p-8 text-center category-card transition-all duration-300 cursor-pointer group">
+                    <div class="bg-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                        <i class="fas fa-spa text-pink-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Beauty</h3>
+                    <p class="text-gray-600 mb-4">Skincare, Makeup, Fragrances & more</p>
+                    <div class="flex items-center justify-center space-x-1 text-pink-500">
+                        <span class="font-semibold">1,542 Products</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </div>
+                </a>
+
+                <!-- Sports -->
+                <a href="shop.html" class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 text-center category-card transition-all duration-300 cursor-pointer group">
+                    <div class="bg-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                        <i class="fas fa-dumbbell text-red-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Sports</h3>
+                    <p class="text-gray-600 mb-4">Fitness, Outdoor, Equipment & more</p>
+                    <div class="flex items-center justify-center space-x-1 text-red-500">
+                        <span class="font-semibold">678 Products</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </div>
+                </a>
+
+                <!-- Books -->
+                <a href="shop.html" class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-8 text-center category-card transition-all duration-300 cursor-pointer group">
+                    <div class="bg-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                        <i class="fas fa-book text-yellow-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Books</h3>
+                    <p class="text-gray-600 mb-4">Fiction, Non-fiction, Educational & more</p>
+                    <div class="flex items-center justify-center space-x-1 text-yellow-500">
+                        <span class="font-semibold">3,124 Products</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </div>
+                </a>
+
+                <!-- Toys -->
+                <a href="shop.html" class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl p-8 text-center category-card transition-all duration-300 cursor-pointer group">
+                    <div class="bg-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                        <i class="fas fa-gamepad text-indigo-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Toys & Games</h3>
+                    <p class="text-gray-600 mb-4">Educational, Outdoor, Video Games & more</p>
+                    <div class="flex items-center justify-center space-x-1 text-indigo-500">
+                        <span class="font-semibold">1,987 Products</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </div>
+                </a>
+
+                <!-- Automotive -->
+                <a href="shop.html" class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 text-center category-card transition-all duration-300 cursor-pointer group">
+                    <div class="bg-white w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                        <i class="fas fa-car text-gray-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Automotive</h3>
+                    <p class="text-gray-600 mb-4">Car Accessories, Tools, Parts & more</p>
+                    <div class="flex items-center justify-center space-x-1 text-gray-500">
+                        <span class="font-semibold">756 Products</span>
+                        <i class="fas fa-arrow-right text-sm"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Brands -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Popular Brands</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Shop from your favorite brands</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="font-bold text-blue-600 text-lg">AP</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-900">Apple</h4>
+                    <p class="text-gray-600 text-sm">245 Products</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="font-bold text-green-600 text-lg">SM</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-900">Samsung</h4>
+                    <p class="text-gray-600 text-sm">189 Products</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="font-bold text-red-600 text-lg">NK</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-900">Nike</h4>
+                    <p class="text-gray-600 text-sm">312 Products</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="font-bold text-purple-600 text-lg">AD</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-900">Adidas</h4>
+                    <p class="text-gray-600 text-sm">267 Products</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="font-bold text-yellow-600 text-lg">SN</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-900">Sony</h4>
+                    <p class="text-gray-600 text-sm">156 Products</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-100 to-indigo-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <span class="font-bold text-indigo-600 text-lg">LP</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-900">L'Oreal</h4>
+                    <p class="text-gray-600 text-sm">198 Products</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-shopping-bag text-orange-500 text-2xl"></i>
+                        <span class="text-2xl font-bold">ShopHub</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Your one-stop destination for all your shopping needs.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-orange-500 transition-colors">Home</a></li>
+                        <li><a href="shop.html" class="text-gray-400 hover:text-orange-500 transition-colors">Shop</a></li>
+                        <li><a href="new-arrivals.html" class="text-gray-400 hover:text-orange-500 transition-colors">New Arrivals</a></li>
+                        <li><a href="deals.html" class="text-gray-400 hover:text-orange-500 transition-colors">Deals & Offers</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-400 hover:text-orange-500 transition-colors">Contact Us</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-orange-500 transition-colors">FAQs</a></li>
+                        <li><a href="shipping.html" class="text-gray-400 hover:text-orange-500 transition-colors">Shipping Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-orange-500 mt-1 mr-3"></i>
+                            <span>123 Shopping Street, Retail District</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-orange-500 mr-3"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-orange-500 mr-3"></i>
+                            <span>support@shophub.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 ShopHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Category card hover effects
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '';
+            });
+        });
+
+        // Brand card interactions
+        document.querySelectorAll('.bg-white.p-6.rounded-xl').forEach(brand => {
+            brand.addEventListener('click', function() {
+                const brandName = this.querySelector('h4').textContent;
+                // In a real app, you would filter products by brand
+                alert(`Showing products from ${brandName}`);
+            });
+        });
+    </script>
+</body>
+</html>

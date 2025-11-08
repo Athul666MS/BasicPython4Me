@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - ShopHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .orders-gradient {
+            background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%);
+        }
+        .order-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .status-delivered { color: #10b981; }
+        .status-shipped { color: #3b82f6; }
+        .status-processing { color: #f59e0b; }
+        .status-cancelled { color: #ef4444; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-shopping-bag text-orange-500 text-3xl"></i>
+                    <span class="text-3xl font-bold text-gray-800">ShopHub</span>
+                </div>
+
+                <div class="flex items-center justify-end space-x-8 flex-1">
+                    <nav class="hidden lg:flex space-x-8">
+                        <a href="index.html" class="text-gray-700 hover:text-orange-500 font-medium">Home</a>
+                        <a href="shop.html" class="text-gray-700 hover:text-orange-500 font-medium">Shop</a>
+                        <a href="new-arrivals.html" class="text-gray-700 hover:text-orange-500 font-medium">New Arrivals</a>
+                        <a href="deals.html" class="text-gray-700 hover:text-orange-500 font-medium">Deals & Offers</a>
+                        <a href="contact.html" class="text-gray-700 hover:text-orange-500 font-medium">Contact</a>
+                    </nav>
+
+                    <div class="flex items-center space-x-6">
+                        <button class="text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-search text-xl"></i>
+                        </button>
+                        <button class="relative text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">3</span>
+                        </button>
+                        <button class="relative text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-heart text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">5</span>
+                        </button>
+                        <div class="relative">
+                            <button class="flex items-center space-x-2 text-gray-700 hover:text-orange-500">
+                                <i class="fas fa-user-circle text-xl"></i>
+                                <span class="hidden md:block">John Doe</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- User Dashboard -->
+    <section class="orders-gradient py-8">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold text-gray-900 mb-2">My Orders</h1>
+                <p class="text-gray-700">Track and manage your orders</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Navigation -->
+    <section class="bg-white border-b border-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex space-x-8 overflow-x-auto">
+                    <a href="profile.html" class="py-4 text-gray-600 hover:text-orange-500 whitespace-nowrap">
+                        <i class="fas fa-user mr-2"></i>Profile
+                    </a>
+                    <a href="orders.html" class="py-4 text-orange-500 border-b-2 border-orange-500 font-semibold whitespace-nowrap">
+                        <i class="fas fa-shopping-bag mr-2"></i>My Orders
+                    </a>
+                    <a href="wishlist.html" class="py-4 text-gray-600 hover:text-orange-500 whitespace-nowrap">
+                        <i class="fas fa-heart mr-2"></i>Wishlist
+                    </a>
+                    <a href="addresses.html" class="py-4 text-gray-600 hover:text-orange-500 whitespace-nowrap">
+                        <i class="fas fa-map-marker-alt mr-2"></i>Addresses
+                    </a>
+                    <a href="payment-methods.html" class="py-4 text-gray-600 hover:text-orange-500 whitespace-nowrap">
+                        <i class="fas fa-credit-card mr-2"></i>Payment Methods
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Orders Section -->
+    <section class="py-8">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <!-- Filters -->
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8 space-y-4 md:space-y-0">
+                    <div class="flex space-x-4">
+                        <button class="px-4 py-2 bg-orange-500 text-white rounded-lg font-medium">All Orders</button>
+                        <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">Processing</button>
+                        <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">Shipped</button>
+                        <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">Delivered</button>
+                    </div>
+                    <div class="flex space-x-4">
+                        <select class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500">
+                            <option>Last 30 days</option>
+                            <option>Last 3 months</option>
+                            <option>Last 6 months</option>
+                            <option>Last year</option>
+                        </select>
+                        <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium flex items-center space-x-2">
+                            <i class="fas fa-download"></i>
+                            <span>Export</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Orders List -->
+                <div class="space-y-6">
+                    <!-- Order 1 - Delivered -->
+                    <div class="bg-white rounded-xl shadow-sm order-card transition-all duration-300">
+                        <div class="p-6 border-b border-gray-200">
+                            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                <div class="mb-4 lg:mb-0">
+                                    <div class="flex items-center space-x-4">
+                                        <h3 class="text-lg font-semibold text-gray-900">Order #SH123456</h3>
+                                        <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-semibold rounded-full status-delivered">
+                                            Delivered
+                                        </span>
+                                    </div>
+                                    <p class="text-gray-600 mt-1">Placed on October 15, 2023</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-2xl font-bold text-gray-900">₹77,091</p>
+                                    <p class="text-sm text-gray-600">3 items</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <!-- Order Items -->
+                            <div class="space-y-4 mb-6">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg overflow-hidden flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1592286927505-ed303e3d0eef?w=100" 
+                                             alt="iPhone 15" 
+                                             class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-gray-900">iPhone 15 Pro Max</h4>
+                                        <p class="text-gray-600 text-sm">Space Black • 256GB</p>
+                                        <p class="text-gray-900 font-semibold">₹79,999</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-gray-600">Qty: 1</p>
+                                        <button class="text-orange-500 hover:text-orange-600 font-medium text-sm mt-2">
+                                            Buy Again
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg overflow-hidden flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=100" 
+                                             alt="Speaker" 
+                                             class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-gray-900">Bluetooth Speaker</h4>
+                                        <p class="text-gray-600 text-sm">Blue • Waterproof</p>
+                                        <p class="text-gray-900 font-semibold">₹1,999</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-gray-600">Qty: 2</p>
+                                        <button class="text-orange-500 hover:text-orange-600 font-medium text-sm mt-2">
+                                            Buy Again
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="flex flex-wrap gap-3 pt-4 border-t border-gray-200">
+                                <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">
+                                    View Invoice
+                                </button>
+                                <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">
+                                    Track Package
+                                </button>
+                                <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">
+                                    Write Review
+                                </button>
+                                <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">
+                                    Return Items
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order 2 - Shipped -->
+                    <div class="bg-white rounded-xl shadow-sm order-card transition-all duration-300">
+                        <div class="p-6 border-b border-gray-200">
+                            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                <div class="mb-4 lg:mb-0">
+                                    <div class="flex items-center space-x-4">
+                                        <h3 class="text-lg font-semibold text-gray-900">Order #SH123457</h3>
+                                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-semibold rounded-full status-shipped">
+                                            Shipped
+                                        </span>
+                                    </div>
+                                    <p class="text-gray-600 mt-1">Placed on October 18, 2023</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-2xl font-bold text-gray-900">₹12,999</p>
+                                    <p class="text-sm text-gray-600">1 item</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <!-- Order Items -->
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-teal-100 rounded-lg overflow-hidden flex-shrink-0">
+                                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100" 
+                                         alt="Smart Watch" 
+                                         class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-semibold text-gray-900">Smart Fitness Watch</h4>
+                                    <p class="text-gray-600 text-sm">Black • Advanced Tracking</p>
+                                    <p class="text-gray-900 font-semibold">₹12,999</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-gray-600">Qty: 1</p>
+                                    <button class="text-orange-500 hover:text-orange-600 font-medium text-sm mt-2">
+                                        Track Order
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Tracking Info -->
+                            <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-semibold text-gray-900">Estimated Delivery</p>
+                                        <p class="text-gray-600">October 25, 2023</p>
+                                    </div>
+                                    <button class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 font-medium">
+                                        Track Package
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order 3 - Processing -->
+                    <div class="bg-white rounded-xl shadow-sm order-card transition-all duration-300">
+                        <div class="p-6 border-b border-gray-200">
+                            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                <div class="mb-4 lg:mb-0">
+                                    <div class="flex items-center space-x-4">
+                                        <h3 class="text-lg font-semibold text-gray-900">Order #SH123458</h3>
+                                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-semibold rounded-full status-processing">
+                                            Processing
+                                        </span>
+                                    </div>
+                                    <p class="text-gray-600 mt-1">Placed on October 20, 2023</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-2xl font-bold text-gray-900">₹5,998</p>
+                                    <p class="text-sm text-gray-600">2 items</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <!-- Order Items -->
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-pink-100 to-orange-100 rounded-lg overflow-hidden flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=100" 
+                                             alt="T-Shirt" 
+                                             class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-gray-900">Cotton T-Shirt</h4>
+                                        <p class="text-gray-600 text-sm">Black • Size L</p>
+                                        <p class="text-gray-900 font-semibold">₹499</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-gray-600">Qty: 2</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-100 to-orange-100 rounded-lg overflow-hidden flex-shrink-0">
+                                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=100" 
+                                             alt="Sunglasses" 
+                                             class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-semibold text-gray-900">Wayfarer Sunglasses</h4>
+                                        <p class="text-gray-600 text-sm">Black • Classic</p>
+                                        <p class="text-gray-900 font-semibold">₹899</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-gray-600">Qty: 1</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="flex flex-wrap gap-3 pt-4 border-t border-gray-200">
+                                <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">
+                                    Cancel Order
+                                </button>
+                                <button class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">
+                                    Contact Support
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex justify-center items-center space-x-2 mt-12">
+                    <button class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50">
+                        <i class="fas fa-chevron-left text-gray-600"></i>
+                    </button>
+                    <button class="w-10 h-10 flex items-center justify-center bg-orange-500 text-white rounded-lg font-semibold">1</button>
+                    <button class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 font-semibold">2</button>
+                    <button class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50 font-semibold">3</button>
+                    <button class="w-10 h-10 flex items-center justify-center border border-gray-300 rounded-lg hover:bg-gray-50">
+                        <i class="fas fa-chevron-right text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-shopping-bag text-orange-500 text-2xl"></i>
+                        <span class="text-2xl font-bold">ShopHub</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Your one-stop destination for all your shopping needs.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-orange-500 transition-colors">Home</a></li>
+                        <li><a href="shop.html" class="text-gray-400 hover:text-orange-500 transition-colors">Shop</a></li>
+                        <li><a href="new-arrivals.html" class="text-gray-400 hover:text-orange-500 transition-colors">New Arrivals</a></li>
+                        <li><a href="deals.html" class="text-gray-400 hover:text-orange-500 transition-colors">Deals & Offers</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-400 hover:text-orange-500 transition-colors">Contact Us</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-orange-500 transition-colors">FAQs</a></li>
+                        <li><a href="shipping.html" class="text-gray-400 hover:text-orange-500 transition-colors">Shipping Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-orange-500 mt-1 mr-3"></i>
+                            <span>123 Shopping Street, Retail District</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-orange-500 mr-3"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-orange-500 mr-3"></i>
+                            <span>support@shophub.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 ShopHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Order filtering functionality
+        document.querySelectorAll('button').forEach(button => {
+            if(button.textContent === 'All Orders' || button.textContent === 'Processing' || 
+               button.textContent === 'Shipped' || button.textContent === 'Delivered') {
+                button.addEventListener('click', function() {
+                    // Remove active class from all filter buttons
+                    document.querySelectorAll('button').forEach(btn => {
+                        if(btn.textContent === 'All Orders' || btn.textContent === 'Processing' || 
+                           btn.textContent === 'Shipped' || btn.textContent === 'Delivered') {
+                            btn.classList.remove('bg-orange-500', 'text-white');
+                            btn.classList.add('border', 'border-gray-300', 'hover:bg-gray-50');
+                        }
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('bg-orange-500', 'text-white');
+                    this.classList.remove('border', 'border-gray-300', 'hover:bg-gray-50');
+                    
+                    // In a real app, you would filter orders here
+                });
+            }
+        });
+
+        // Buy Again functionality
+        document.querySelectorAll('button').forEach(button => {
+            if(button.textContent === 'Buy Again') {
+                button.addEventListener('click', function() {
+                    // In a real app, you would add the item to cart
+                    alert('Item added to cart!');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
