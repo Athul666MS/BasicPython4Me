@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - ShopHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .faq-gradient {
+            background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%);
+        }
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-shopping-bag text-orange-500 text-3xl"></i>
+                    <span class="text-3xl font-bold text-gray-800">ShopHub</span>
+                </div>
+
+                <div class="flex items-center justify-end space-x-8 flex-1">
+                    <nav class="hidden lg:flex space-x-8">
+                        <a href="index.html" class="text-gray-700 hover:text-orange-500 font-medium">Home</a>
+                        <a href="shop.html" class="text-gray-700 hover:text-orange-500 font-medium">Shop</a>
+                        <a href="new-arrivals.html" class="text-gray-700 hover:text-orange-500 font-medium">New Arrivals</a>
+                        <a href="deals.html" class="text-gray-700 hover:text-orange-500 font-medium">Deals & Offers</a>
+                        <a href="contact.html" class="text-gray-700 hover:text-orange-500 font-medium">Contact</a>
+                    </nav>
+
+                    <div class="flex items-center space-x-6">
+                        <button class="text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-search text-xl"></i>
+                        </button>
+                        <button class="relative text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">3</span>
+                        </button>
+                        <button class="hidden md:block px-6 py-2 border-2 border-gray-800 text-gray-800 rounded-lg hover:bg-gray-800 hover:text-white transition-colors font-medium">
+                            Login
+                        </button>
+                        <button class="hidden md:block px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">
+                            Register
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="faq-gradient py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h1>
+                <p class="text-xl text-gray-700 mb-8">Find answers to common questions about shopping with ShopHub</p>
+                
+                <!-- Search FAQ -->
+                <div class="max-w-md mx-auto">
+                    <div class="relative">
+                        <input type="text" 
+                               placeholder="Search FAQs..." 
+                               class="w-full px-6 py-4 pr-12 border-0 rounded-2xl shadow-lg focus:outline-none focus:ring-2 focus:ring-orange-500">
+                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-orange-500">
+                            <i class="fas fa-search text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="px-6 py-3 bg-orange-500 text-white rounded-lg font-medium">All Questions</button>
+                    <button class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">Orders & Shipping</button>
+                    <button class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">Returns & Refunds</button>
+                    <button class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">Payments</button>
+                    <button class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 font-medium">Account & Security</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="py-8">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <!-- Orders & Shipping -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-8">Orders & Shipping</h2>
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <!-- FAQ Item 1 -->
+                        <div class="faq-item p-6 border-b border-gray-200">
+                            <button class="w-full flex items-center justify-between text-left faq-toggle-btn">
+                                <h3 class="text-lg font-semibold text-gray-900">How long does shipping take?</h3>
+                                <i class="fas fa-chevron-down text-orange-500 faq-toggle transition-transform"></i>
+                            </button>
+                            <div class="faq-answer mt-4">
+                                <p class="text-gray-700 leading-relaxed">
+                                    Standard shipping typically takes 5-7 business days. Express shipping takes 2-3 business days, 
+                                    and same-day delivery is available in select metropolitan areas for orders placed before 2 PM.
+                                </p>
+                                <p class="text-gray-700 mt-2 leading-relaxed">
+                                    You'll receive tracking information via email once your order ships. During peak seasons, 
+                                    delivery times may be slightly longer.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="faq-item p-6 border-b border-gray-200">
+                            <button class="w-full flex items-center justify-between text-left faq-toggle-btn">
+                                <h3 class="text-lg font-semibold text-gray-900">Can I track my order?</h3>
+                                <i class="fas fa-chevron-down text-orange-500 faq-toggle transition-transform"></i>
+                            </button>
+                            <div class="faq-answer mt-4">
+                                <p class="text-gray-700 leading-relaxed">
+                                    Yes, you can track your order through your ShopHub account. Once your order ships, 
+                                    you'll receive a tracking number via email and SMS. You can also track your order by:
+                                </p>
+                                <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                                    <li>Logging into your account and visiting "My Orders"</li>
+                                    <li>Using the tracking link in your shipping confirmation email</li>
+                                    <li>Contacting our customer support team</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 3 -->
+                        <div class="faq-item p-6 border-b border-gray-200">
+                            <button class="w-full flex items-center justify-between text-left faq-toggle-btn">
+                                <h3 class="text-lg font-semibold text-gray-900">Do you ship internationally?</h3>
+                                <i class="fas fa-chevron-down text-orange-500 faq-toggle transition-transform"></i>
+                            </button>
+                            <div class="faq-answer mt-4">
+                                <p class="text-gray-700 leading-relaxed">
+                                    Currently, we ship to all major cities in India. We're working on expanding our international 
+                                    shipping capabilities. For international orders, additional customs duties and taxes may apply, 
+                                    which are the responsibility of the recipient.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 4 -->
+                        <div class="faq-item p-6">
+                            <button class="w-full flex items-center justify-between text-left faq-toggle-btn">
+                                <h3 class="text-lg font-semibold text-gray-900">What is your shipping cost?</h3>
+                                <i class="fas fa-chevron-down text-orange-500 faq-toggle transition-transform"></i>
+                            </button>
+                            <div class="faq-answer mt-4">
+                                <p class="text-gray-700 leading-relaxed">
+                                    We offer free standard shipping on all orders over ₹999. For orders below ₹999, 
+                                    standard shipping costs ₹99. Express shipping is available for ₹199, and same-day 
+                                    delivery costs ₹499 (where available).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Returns & Refunds -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-8">Returns & Refunds</h2>
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <!-- FAQ Item 1 -->
+                        <div class="faq-item p-6 border-b border-gray-200">
+                            <button class="w-full flex items-center justify-between text-left faq-toggle-btn">
+                                <h3 class="text-lg font-semibold text-gray-900">What is your return policy?</h3>
+                                <i class="fas fa-chevron-down text-orange-500 faq-toggle transition-transform"></i>
+                            </button>
+                            <div class="faq-answer mt-4">
+                                <p class="text-gray-700 leading-relaxed">
+                                    We offer a 30-day return policy from the date of delivery. Items must be in original 
+                                    condition with all tags attached and in the original packaging. Some items like 
+                                    intimate apparel, personalized products, and perishable goods are not eligible for return.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="faq-item p-6 border-b border-gray-200">
+                            <button class="w-full flex items-center justify-between text-left faq-toggle-btn">
+                                <h3 class="text-lg font-semibold text-gray-900">How do I initiate a return?</h3>
+                                <i class="fas fa-chevron-down text-orange-500 faq-toggle transition-transform"></i>
+                            </button>
+                            <div class="faq-answer mt-4">
+                                <p class="text-gray-700 leading-relaxed">
+                                    To initiate a return:
+                                </p>
+                                <ol class="list-decimal list-inside text-gray-700 mt-2 space-y-1">
+                                    <li>Log into your ShopHub account</li>
+                                    <li>Go to "My Orders" and select the item you want to return</li>
+                                    <li>Click "Return Item" and follow the instructions</li>
+                                    <li>Print the return label and attach it to your package</li>
+                                    <li>Drop off the package at any authorized shipping location</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 3 -->
+                        <div class="faq-item p-6">
+                            <button class="w-full flex items-center justify-between text-left faq-toggle-btn">
+                                <h3 class="text-lg font-semibold text-gray-900">How long do refunds take?</h3>
+                                <i class="fas fa-chevron-down text-orange-500 faq-toggle transition-transform"></i>
+                            </button>
+                            <div class="faq-answer mt-4">
+                                <p class="text-gray-700 leading-relaxed">
+                                    Once we receive your return, refunds are processed within 5-7 business days. 
+                                    The time it takes for the refund to reflect in your account depends on your 
+                                    payment method and bank processing times:
+                                </p>
+                                <ul class="list-disc list-inside text-gray-700 mt-2 space-y-1">
+                                    <li>Credit/Debit Cards: 7-10 business days</li>
+                                    <li>UPI: 2-3 business days</li>
+                                    <li>Net Banking: 3-5 business days</li>
+                                    <li>Wallet: Instant to 24 hours</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payments -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-8">Payments</h2>
+                    <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                        <!-- FAQ Item 1 -->
+                        <div class="faq-item p-6 border-b border-gray-200">
+                            <button class="w-full flex items-center justify-between text-left faq-toggle-btn">
+                                <h3 class="text-lg font-semibold text-gray-900">What payment methods do you accept?</h3>
+                                <i class="fas fa-chevron-down text-orange-500 faq-toggle transition-transform"></i>
+                            </button>
+                            <div class="faq-answer mt-4">
+                                <p class="text-gray-700 leading-relaxed">
+                                    We accept a wide range of payment methods for your convenience:
+                                </p>
+                                <div class="grid grid-cols-2 gap-4 mt-3">
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-credit-card text-orange-500"></i>
+                                        <span>Credit/Debit Cards</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-mobile-alt text-orange-500"></i>
+                                        <span>UPI Payments</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-university text-orange-500"></i>
+                                        <span>Net Banking</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <i class="fas fa-wallet text-orange-500"></i>
+                                        <span>Digital Wallets</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FAQ Item 2 -->
+                        <div class="faq-item p-6">
+                            <button class="w-full flex items-center justify-between text-left faq-toggle-btn">
+                                <h3 class="text-lg font-semibold text-gray-900">Is it safe to pay on ShopHub?</h3>
+                                <i class="fas fa-chevron-down text-orange-500 faq-toggle transition-transform"></i>
+                            </button>
+                            <div class="faq-answer mt-4">
+                                <p class="text-gray-700 leading-relaxed">
+                                    Yes, shopping on ShopHub is completely safe. We use industry-standard SSL encryption 
+                                    to protect your personal and payment information. We are PCI-DSS compliant and never 
+                                    store your complete payment details on our servers.
+                                </p>
+                                <div class="flex items-center space-x-4 mt-3">
+                                    <i class="fas fa-lock text-green-500 text-xl"></i>
+                                    <i class="fas fa-shield-alt text-blue-500 text-xl"></i>
+                                    <i class="fas fa-user-shield text-purple-500 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Still Have Questions -->
+                <div class="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-white text-center">
+                    <h3 class="text-2xl font-bold mb-4">Still Have Questions?</h3>
+                    <p class="text-orange-100 mb-6">Can't find the answer you're looking for? Please chat with our friendly team.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="contact.html" class="px-6 py-3 bg-white text-orange-500 rounded-lg hover:bg-gray-100 transition-colors font-medium">
+                            Contact Support
+                        </a>
+                        <button class="px-6 py-3 border-2 border-white text-white rounded-lg hover:bg-white hover:text-orange-500 transition-colors font-medium">
+                            Live Chat
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-shopping-bag text-orange-500 text-2xl"></i>
+                        <span class="text-2xl font-bold">ShopHub</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Your one-stop destination for all your shopping needs.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-orange-500 transition-colors">Home</a></li>
+                        <li><a href="shop.html" class="text-gray-400 hover:text-orange-500 transition-colors">Shop</a></li>
+                        <li><a href="new-arrivals.html" class="text-gray-400 hover:text-orange-500 transition-colors">New Arrivals</a></li>
+                        <li><a href="deals.html" class="text-gray-400 hover:text-orange-500 transition-colors">Deals & Offers</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-400 hover:text-orange-500 transition-colors">Contact Us</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-orange-500 transition-colors">FAQs</a></li>
+                        <li><a href="shipping.html" class="text-gray-400 hover:text-orange-500 transition-colors">Shipping Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-orange-500 mt-1 mr-3"></i>
+                            <span>123 Shopping Street, Retail District</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-orange-500 mr-3"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-orange-500 mr-3"></i>
+                            <span>support@shophub.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 ShopHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle functionality
+        document.querySelectorAll('.faq-toggle-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // FAQ Category filtering
+        document.querySelectorAll('button').forEach(button => {
+            if(button.textContent === 'All Questions' || button.textContent === 'Orders & Shipping' || 
+               button.textContent === 'Returns & Refunds' || button.textContent === 'Payments' || 
+               button.textContent === 'Account & Security') {
+                button.addEventListener('click', function() {
+                    // Remove active class from all category buttons
+                    document.querySelectorAll('button').forEach(btn => {
+                        if(btn.textContent === 'All Questions' || btn.textContent === 'Orders & Shipping' || 
+                           btn.textContent === 'Returns & Refunds' || btn.textContent === 'Payments' || 
+                           btn.textContent === 'Account & Security') {
+                            btn.classList.remove('bg-orange-500', 'text-white');
+                            btn.classList.add('border', 'border-gray-300', 'hover:bg-gray-50');
+                        }
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('bg-orange-500', 'text-white');
+                    this.classList.remove('border', 'border-gray-300', 'hover:bg-gray-50');
+                    
+                    // In a real app, you would filter FAQ categories here
+                });
+            }
+        });
+    </script>
+</body>
+</html>

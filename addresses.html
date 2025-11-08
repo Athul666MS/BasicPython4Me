@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Addresses - ShopHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .addresses-gradient {
+            background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%);
+        }
+        .form-input:focus {
+            border-color: #f97316;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-shopping-bag text-orange-500 text-3xl"></i>
+                    <span class="text-3xl font-bold text-gray-800">ShopHub</span>
+                </div>
+
+                <div class="flex items-center justify-end space-x-8 flex-1">
+                    <nav class="hidden lg:flex space-x-8">
+                        <a href="index.html" class="text-gray-700 hover:text-orange-500 font-medium">Home</a>
+                        <a href="shop.html" class="text-gray-700 hover:text-orange-500 font-medium">Shop</a>
+                        <a href="new-arrivals.html" class="text-gray-700 hover:text-orange-500 font-medium">New Arrivals</a>
+                        <a href="deals.html" class="text-gray-700 hover:text-orange-500 font-medium">Deals & Offers</a>
+                        <a href="contact.html" class="text-gray-700 hover:text-orange-500 font-medium">Contact</a>
+                    </nav>
+
+                    <div class="flex items-center space-x-6">
+                        <button class="text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-search text-xl"></i>
+                        </button>
+                        <button class="relative text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">3</span>
+                        </button>
+                        <button class="relative text-gray-700 hover:text-orange-500">
+                            <i class="fas fa-heart text-xl"></i>
+                            <span class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">5</span>
+                        </button>
+                        <div class="relative">
+                            <button class="flex items-center space-x-2 text-gray-700 hover:text-orange-500">
+                                <i class="fas fa-user-circle text-xl"></i>
+                                <span class="hidden md:block">John Doe</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- User Dashboard -->
+    <section class="addresses-gradient py-8">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-4xl font-bold text-gray-900 mb-2">My Addresses</h1>
+                <p class="text-gray-700">Manage your delivery addresses</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Navigation -->
+    <section class="bg-white border-b border-gray-200">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex space-x-8 overflow-x-auto">
+                    <a href="profile.html" class="py-4 text-gray-600 hover:text-orange-500 whitespace-nowrap">
+                        <i class="fas fa-user mr-2"></i>Profile
+                    </a>
+                    <a href="orders.html" class="py-4 text-gray-600 hover:text-orange-500 whitespace-nowrap">
+                        <i class="fas fa-shopping-bag mr-2"></i>My Orders
+                    </a>
+                    <a href="wishlist.html" class="py-4 text-gray-600 hover:text-orange-500 whitespace-nowrap">
+                        <i class="fas fa-heart mr-2"></i>Wishlist
+                    </a>
+                    <a href="addresses.html" class="py-4 text-orange-500 border-b-2 border-orange-500 font-semibold whitespace-nowrap">
+                        <i class="fas fa-map-marker-alt mr-2"></i>Addresses
+                    </a>
+                    <a href="payment-methods.html" class="py-4 text-gray-600 hover:text-orange-500 whitespace-nowrap">
+                        <i class="fas fa-credit-card mr-2"></i>Payment Methods
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Addresses Section -->
+    <section class="py-8">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900">Saved Addresses</h2>
+                    <button class="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium" onclick="openAddAddressModal()">
+                        <i class="fas fa-plus mr-2"></i>Add New Address
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Address 1 - Default -->
+                    <div class="bg-white rounded-xl shadow-sm border-2 border-orange-500 p-6 relative">
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full">Default</span>
+                        </div>
+                        <div class="mb-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">Home</h3>
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                A-501, Skyline Apartments<br>
+                                123 MG Road<br>
+                                Bangalore, Karnataka 560001<br>
+                                India
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4 text-sm text-gray-600 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-user mr-2"></i>
+                                <span>John Doe</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone mr-2"></i>
+                                <span>+91 98765 43210</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3 pt-4 border-t border-gray-200">
+                            <button class="text-orange-500 hover:text-orange-600 font-medium text-sm">Edit</button>
+                            <button class="text-gray-500 hover:text-red-500 font-medium text-sm">Delete</button>
+                        </div>
+                    </div>
+
+                    <!-- Address 2 -->
+                    <div class="bg-white rounded-xl shadow-sm p-6 relative">
+                        <div class="mb-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">Office</h3>
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                Tech Park, Tower B<br>
+                                Floor 8, Suite 802<br>
+                                Whitefield, Bangalore 560066<br>
+                                India
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4 text-sm text-gray-600 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-user mr-2"></i>
+                                <span>John Doe</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone mr-2"></i>
+                                <span>+91 98765 43210</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3 pt-4 border-t border-gray-200">
+                            <button class="text-orange-500 hover:text-orange-600 font-medium text-sm">Set as Default</button>
+                            <button class="text-orange-500 hover:text-orange-600 font-medium text-sm">Edit</button>
+                            <button class="text-gray-500 hover:text-red-500 font-medium text-sm">Delete</button>
+                        </div>
+                    </div>
+
+                    <!-- Address 3 -->
+                    <div class="bg-white rounded-xl shadow-sm p-6 relative">
+                        <div class="mb-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">Parents' House</h3>
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                45 Green Park Society<br>
+                                Near Central Mall<br>
+                                Mumbai, Maharashtra 400001<br>
+                                India
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4 text-sm text-gray-600 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-user mr-2"></i>
+                                <span>John Doe</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone mr-2"></i>
+                                <span>+91 98765 43210</span>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3 pt-4 border-t border-gray-200">
+                            <button class="text-orange-500 hover:text-orange-600 font-medium text-sm">Set as Default</button>
+                            <button class="text-orange-500 hover:text-orange-600 font-medium text-sm">Edit</button>
+                            <button class="text-gray-500 hover:text-red-500 font-medium text-sm">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Address Modal -->
+    <div id="addAddressModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b border-gray-200">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xl font-bold text-gray-900">Add New Address</h3>
+                    <button class="text-gray-400 hover:text-gray-600" onclick="closeAddAddressModal()">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-6">
+                <form class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Address Type</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                            <option>Home</option>
+                            <option>Office</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors" placeholder="First name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors" placeholder="Last name">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors" placeholder="Phone number">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Address Line 1</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors" placeholder="Street address">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Address Line 2</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors" placeholder="Apartment, suite, etc.">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">City</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors" placeholder="City">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">State</label>
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors">
+                                <option>Select State</option>
+                                <option>Maharashtra</option>
+                                <option>Karnataka</option>
+                                <option>Delhi</option>
+                                <option>Tamil Nadu</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">PIN Code</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors" placeholder="PIN code">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Landmark</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors" placeholder="Nearby landmark">
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox" id="defaultAddress" class="w-4 h-4 text-orange-500 border-gray-300 rounded focus:ring-orange-500">
+                        <label for="defaultAddress" class="text-sm text-gray-700">Set as default address</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="p-6 border-t border-gray-200">
+                <div class="flex space-x-4">
+                    <button class="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium" onclick="closeAddAddressModal()">
+                        Cancel
+                    </button>
+                    <button class="flex-1 px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors font-medium">
+                        Save Address
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-shopping-bag text-orange-500 text-2xl"></i>
+                        <span class="text-2xl font-bold">ShopHub</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Your one-stop destination for all your shopping needs.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-orange-500 transition-colors">Home</a></li>
+                        <li><a href="shop.html" class="text-gray-400 hover:text-orange-500 transition-colors">Shop</a></li>
+                        <li><a href="new-arrivals.html" class="text-gray-400 hover:text-orange-500 transition-colors">New Arrivals</a></li>
+                        <li><a href="deals.html" class="text-gray-400 hover:text-orange-500 transition-colors">Deals & Offers</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-400 hover:text-orange-500 transition-colors">Contact Us</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-orange-500 transition-colors">FAQs</a></li>
+                        <li><a href="shipping.html" class="text-gray-400 hover:text-orange-500 transition-colors">Shipping Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-orange-500 mt-1 mr-3"></i>
+                            <span>123 Shopping Street, Retail District</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-orange-500 mr-3"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-orange-500 mr-3"></i>
+                            <span>support@shophub.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 ShopHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Modal functions
+        function openAddAddressModal() {
+            document.getElementById('addAddressModal').classList.remove('hidden');
+        }
+
+        function closeAddAddressModal() {
+            document.getElementById('addAddressModal').classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('addAddressModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAddAddressModal();
+            }
+        });
+
+        // Address management
+        document.querySelectorAll('button').forEach(button => {
+            if(button.textContent === 'Set as Default') {
+                button.addEventListener('click', function() {
+                    // Remove default from all addresses
+                    document.querySelectorAll('.border-orange-500').forEach(address => {
+                        address.classList.remove('border-orange-500', 'border-2');
+                    });
+                    // Remove default badge
+                    document.querySelectorAll('.bg-orange-500').forEach(badge => {
+                        if(badge.textContent === 'Default') {
+                            badge.remove();
+                        }
+                    });
+                    
+                    // Add default to clicked address
+                    const addressCard = this.closest('.bg-white');
+                    addressCard.classList.add('border-orange-500', 'border-2');
+                    
+                    // Add default badge
+                    const badge = document.createElement('span');
+                    badge.className = 'px-3 py-1 bg-orange-500 text-white text-xs font-semibold rounded-full absolute top-4 right-4';
+                    badge.textContent = 'Default';
+                    addressCard.querySelector('.relative').appendChild(badge);
+                    
+                    alert('Default address updated!');
+                });
+            }
+            
+            if(button.textContent === 'Delete') {
+                button.addEventListener('click', function() {
+                    if(confirm('Are you sure you want to delete this address?')) {
+                        this.closest('.bg-white').remove();
+                        alert('Address deleted successfully!');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
