@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - ShopHub</title>
+       <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+        }
+
+        header {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .logo i {
+            color: #ff8c00;
+            margin-right: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            flex: 1;
+            margin-left: 50px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff8c00;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .header-right button {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        .header-right button:hover {
+            color: #ff8c00;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff8c00;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .main-section {
+            background: white;
+            padding: 40px;
+            margin: 20px auto;
+            border-radius: 10px;
+            max-width: 1200px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #ff8c00;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .product-images {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail-images {
+            display: flex;
+            gap: 10px;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: #ff8c00;
+        }
+
+        .product-details h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .seller-info {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: #fff3e0;
+            color: #ff8c00;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .stars {
+            color: #ffc107;
+        }
+
+        .review-count {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .price {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff8c00;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        .variants-section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .variant-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .variant-btn {
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .variant-btn:hover {
+            border-color: #ff8c00;
+        }
+
+        .variant-btn.active {
+            border-color: #ff8c00;
+            background: #fff3e0;
+            color: #ff8c00;
+        }
+
+        .variant-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #f0f0f0;
+        }
+
+        .quantity-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .quantity-control button {
+            background: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .quantity-control button:hover {
+            background: #f0f0f0;
+        }
+
+        .quantity-control input {
+            width: 50px;
+            border: none;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 15px;
+            background: #ff8c00;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #e67e00;
+        }
+
+        .add-to-cart-btn.added {
+            background: #28a745;
+        }
+
+        .stock-status {
+            margin-top: 15px;
+            padding: 10px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .reviews-section {
+            margin-top: 50px;
+            border-top: 2px solid #eee;
+            padding-top: 30px;
+        }
+
+        .reviews-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .review-item {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .review-rating {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+
+        .review-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .review-content {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .review-helpful {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .related-products {
+            margin-top: 50px;
+        }
+
+        .related-products h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .product-card {
+            background: white;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: #ff8c00;
+        }
+
+        .product-card.active {
+            border-color: #ff8c00;
+        }
+
+        .product-card-image {
+            width: 100%;
+            height: 150px;
+            background: #f0f0f0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-card-info {
+            padding: 12px;
+        }
+
+        .product-card-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 13px;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-card-price {
+            color: #ff8c00;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .main-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+ 
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-shopping-bag text-orange-500 text-3xl"></i>
+                    <span class="text-3xl font-bold text-gray-900">ShopHub</span>
+                </div>
+
+                <nav class="hidden md:flex items-center space-x-8 flex-1 ml-12">
+                    <a href="#home" class="text-gray-700 hover:text-orange-500 font-medium transition">Home</a>
+                    <a href="#products" class="text-gray-700 hover:text-orange-500 font-medium transition">Products</a>
+                    <a href="#about" class="text-gray-700 hover:text-orange-500 font-medium transition">About</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-orange-500 font-medium transition">Reviews</a>
+                    <a href="#contact" class="text-gray-700 hover:text-orange-500 font-medium transition">Contact</a>
+                </nav>
+
+                <div class="flex items-center space-x-4">
+                    <div class="hidden lg:flex items-center bg-gray-100 rounded-lg px-4 py-2 w-64">
+                        <i class="fas fa-search text-gray-400"></i>
+                        <input type="text" placeholder="Search products..." class="flex-1 bg-gray-100 outline-none ml-2 text-sm">
+                    </div>
+                    <button class="relative text-gray-700 hover:text-orange-500 text-xl transition">
+                        <i class="fas fa-heart"></i>
+                        <span class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
+                    </button>
+                    <button class="relative text-gray-700 hover:text-orange-500 text-xl transition">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </button>
+                    <button class="hidden md:block px-6 py-2 border-2 border-gray-800 text-gray-800 rounded-lg hover:bg-gray-800 hover:text-white transition font-semibold">
+                        Login
+                    </button>
+                    <button class="hidden md:block px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition font-semibold">
+                        Register
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Product Section -->
+    <div class="main-section">
+        <div class="breadcrumb">
+            <a href="#" onclick="goToShop(event)">← Back to Shop</a>
+        </div>
+
+        <!-- Product Container -->
+        <div class="product-container" id="productContainer">
+            <!-- Left side - Images (will be populated by JS) -->
+            <div class="product-images">
+                <div class="main-image">
+                    <img id="mainImage" src="https://images.unsplash.com/photo-1592286927505-ed303e3d0eef?w=600" alt="Product">
+                </div>
+                <div class="thumbnail-images" id="thumbnails">
+                    <div class="thumbnail active" onclick="changeImage(0)">
+                        <img src="https://images.unsplash.com/photo-1592286927505-ed303e3d0eef?w=100" alt="Thumb 1">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(1)">
+                        <img src="https://images.unsplash.com/photo-1511707267537-b85faf00021e?w=100" alt="Thumb 2">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(2)">
+                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=100" alt="Thumb 3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side - Details -->
+            <div class="product-details">
+                <span class="category-tag">Electronics</span>
+                <h1>iPhone 15 Pro Max</h1>
+                <div class="seller-info">By Mobile Hub</div>
+
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="review-count">4.8 (245 reviews)</span>
+                </div>
+
+                <div class="price">₹79,999</div>
+
+                <p class="description">
+                    Latest Apple smartphone with A17 Pro chip, stunning display, and advanced camera system. Perfect for photography and video recording with professional-grade features.
+                </p>
+
+                <!-- Variants -->
+                <div class="variants-section">
+                    <div class="section-title">Choose Color & Storage:</div>
+                    <div class="variant-options">
+                        <button class="variant-btn active" onclick="selectVariant(1)">Black 128GB</button>
+                        <button class="variant-btn" onclick="selectVariant(2)">Blue 256GB (+₹10,000)</button>
+                        <button class="variant-btn" onclick="selectVariant(3)">Silver 512GB (+₹20,000)</button>
+                    </div>
+                </div>
+
+                <!-- Quantity -->
+                <div class="quantity-section">
+                    <div class="section-title">Quantity:</div>
+                    <div class="quantity-control">
+                        <button onclick="decreaseQty()">−</button>
+                        <input type="number" id="quantity" value="1" min="1" readonly>
+                        <button onclick="increaseQty()">+</button>
+                    </div>
+                </div>
+
+                <!-- Add to Cart -->
+                <button class="add-to-cart-btn" id="addBtn" onclick="addToCart()">Add to Cart</button>
+
+                <div class="stock-status">
+                    ✓ In Stock (10 available)
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <div class="reviews-section">
+            <h2>Customer Reviews</h2>
+
+            <div class="review-item">
+                <div class="review-header">
+                    <span class="reviewer-name">Leo</span>
+                    <span class="review-date">2025-11-06</span>
+                </div>
+                <div class="review-rating">★★★★★</div>
+                <div class="review-title">Awesome</div>
+                <div class="review-content">Great camera and display, worth the price</div>
+                <div class="review-helpful">👍 245 found this helpful</div>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header">
+                    <span class="reviewer-name">Sarah</span>
+                    <span class="review-date">2025-11-06</span>
+                </div>
+                <div class="review-rating">★★★★☆</div>
+                <div class="review-title">Good</div>
+                <div class="review-content">Portable and loud, battery lasts 8 hours</div>
+                <div class="review-helpful">👍 123 found this helpful</div>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header">
+                    <span class="reviewer-name">John</span>
+                    <span class="review-date">2025-11-05</span>
+                </div>
+                <div class="review-rating">★★★☆☆</div>
+                <div class="review-title">Average</div>
+                <div class="review-content">Good but heavy, crashes sometimes</div>
+                <div class="review-helpful">👍 45 found this helpful</div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="related-products">
+            <h2>More Products</h2>
+            <div class="products-grid">
+                <div class="product-card active" onclick="changeProduct(1)">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1592286927505-ed303e3d0eef?w=200" alt="iPhone">
+                    </div>
+                    <div class="product-card-info">
+                        <div class="product-card-name">iPhone 15 Pro Max</div>
+                        <div class="product-card-price">₹79,999</div>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="changeProduct(2)">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=200" alt="Speaker">
+                    </div>
+                    <div class="product-card-info">
+                        <div class="product-card-name">Bluetooth Speaker</div>
+                        <div class="product-card-price">₹1,999</div>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="changeProduct(3)">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=200" alt="Galaxy">
+                    </div>
+                    <div class="product-card-info">
+                        <div class="product-card-name">Samsung Galaxy Z Flip 5</div>
+                        <div class="product-card-price">₹89,999</div>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="changeProduct(4)">
+                    <div class="product-card-image">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=200" alt="T-Shirt">
+                    </div>
+                    <div class="product-card-info">
+                        <div class="product-card-name">Cotton T-Shirt</div>
+                        <div class="product-card-price">₹499</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuantity = 1;
+
+        function increaseQty() {
+            currentQuantity++;
+            document.getElementById('quantity').value = currentQuantity;
+        }
+
+        function decreaseQty() {
+            if (currentQuantity > 1) {
+                currentQuantity--;
+                document.getElementById('quantity').value = currentQuantity;
+            }
+        }
+
+        function selectVariant(variant) {
+            let btn = document.querySelectorAll('.variant-btn');
+            btn.forEach(b => b.classList.remove('active'));
+            btn[variant - 1].classList.add('active');
+        }
+
+        function changeImage(index) {
+            let thumbs = document.querySelectorAll('.thumbnail');
+            thumbs.forEach(t => t.classList.remove('active'));
+            thumbs[index].classList.add('active');
+        }
+
+        function addToCart() {
+            let btn = document.getElementById('addBtn');
+            btn.textContent = '✓ Added to Cart!';
+            btn.classList.add('added');
+            
+            setTimeout(() => {
+                btn.textContent = 'Add to Cart';
+                btn.classList.remove('added');
+            }, 2000);
+        }
+
+        function changeProduct(productId) {
+            alert('Product ' + productId + ' clicked - This will load the new product page');
+            // In a real application, this would navigate to the new product
+        }
+
+        function goToShop(e) {
+            e.preventDefault();
+            alert('Going back to shop...');
+        }
+    </script>
+</body>
+</html>
